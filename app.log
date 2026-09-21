@@ -1,0 +1,155 @@
+2026-09-19 11:20:02,876 ERROR invalid email in row {'name': 'Оля', 'email': 'invalid-email.com'}: 'invalid-email.com'
+2026-09-19 11:20:02,899 INFO select pg_catalog.version()
+2026-09-19 11:20:02,900 INFO [raw sql] {}
+2026-09-19 11:20:02,901 INFO select current_schema()
+2026-09-19 11:20:02,901 INFO [raw sql] {}
+2026-09-19 11:20:02,902 INFO show standard_conforming_strings
+2026-09-19 11:20:02,902 INFO [raw sql] {}
+2026-09-19 11:20:02,903 INFO BEGIN (implicit)
+2026-09-19 11:20:02,917 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:20:02,917 INFO [no key 0.00024s] {'name': 'Пётр', 'email': 'petr@example.com', 'param_1': 'Пётр'}
+2026-09-19 11:20:02,921 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:20:02,921 INFO [no key 0.00021s] {'name': 'Пётр И.', 'email': 'petr@example.com', 'param_1': 'Пётр И.'}
+2026-09-19 11:20:02,922 WARNING user with email petr@example.com already existed (id=800042), name updated to 'Пётр И.'
+2026-09-19 11:20:02,923 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:20:02,923 INFO [no key 0.00020s] {'name': 'Пётр Иванов', 'email': 'petr@example.com', 'param_1': 'Пётр Иванов'}
+2026-09-19 11:20:02,924 WARNING user with email petr@example.com already existed (id=800042), name updated to 'Пётр Иванов'
+2026-09-19 11:20:02,925 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:20:02,925 INFO [no key 0.00020s] {'name': 'Иван Сидоров', 'email': 'ivan@example.com', 'param_1': 'Иван Сидоров'}
+2026-09-19 11:20:02,926 ERROR invalid email in row {'name': 'Аня', 'email': ''}: ''
+2026-09-19 11:20:02,926 INFO COMMIT
+2026-09-19 11:20:02,928 INFO created: 2, updated: 2, skipped: 2
+2026-09-19 11:24:23,296 ERROR invalid email in row {'name': 'Оля', 'email': 'invalid-email.com'}: 'invalid-email.com'
+2026-09-19 11:24:23,314 INFO select pg_catalog.version()
+2026-09-19 11:24:23,314 INFO [raw sql] {}
+2026-09-19 11:24:23,316 INFO select current_schema()
+2026-09-19 11:24:23,316 INFO [raw sql] {}
+2026-09-19 11:24:23,317 INFO show standard_conforming_strings
+2026-09-19 11:24:23,317 INFO [raw sql] {}
+2026-09-19 11:24:23,318 INFO BEGIN (implicit)
+2026-09-19 11:24:23,329 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,329 INFO [no key 0.00029s] {'name': 'Пётр', 'email': 'petr@example.com', 'param_1': 'Пётр'}
+2026-09-19 11:24:23,332 WARNING user with email petr@example.com already existed (id=800042), name updated to 'Пётр'
+2026-09-19 11:24:23,333 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,333 INFO [no key 0.00022s] {'name': 'Пётр И.', 'email': 'petr@example.com', 'param_1': 'Пётр И.'}
+2026-09-19 11:24:23,334 WARNING user with email petr@example.com already existed (id=800042), name updated to 'Пётр И.'
+2026-09-19 11:24:23,335 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,335 INFO [no key 0.00020s] {'name': 'Пётр Иванов', 'email': 'petr@example.com', 'param_1': 'Пётр Иванов'}
+2026-09-19 11:24:23,336 WARNING user with email petr@example.com already existed (id=800042), name updated to 'Пётр Иванов'
+2026-09-19 11:24:23,338 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,338 INFO [no key 0.00024s] {'name': 'Иван Сидоров', 'email': 'ivan@example.com', 'param_1': 'Иван Сидоров'}
+2026-09-19 11:24:23,339 WARNING user with email ivan@example.com already existed (id=800045), name updated to 'Иван Сидоров'
+2026-09-19 11:24:23,339 ERROR invalid email in row {'name': 'Аня', 'email': ''}: ''
+2026-09-19 11:24:23,339 ERROR invalid email in row {'name': 'Слава', 'email': '   '}: ''
+2026-09-19 11:24:23,340 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,340 INFO [no key 0.00017s] {'name': 'Мария', 'email': 'maria@example.com', 'param_1': 'Мария'}
+2026-09-19 11:24:23,341 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,341 INFO [no key 0.00018s] {'name': 'Мария К.', 'email': 'maria@example.com', 'param_1': 'Мария К.'}
+2026-09-19 11:24:23,342 WARNING user with email maria@example.com already existed (id=800050), name updated to 'Мария К.'
+2026-09-19 11:24:23,343 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,343 INFO [no key 0.00017s] {'name': 'Мария Кузн.', 'email': 'maria@example.com', 'param_1': 'Мария Кузн.'}
+2026-09-19 11:24:23,344 WARNING user with email maria@example.com already existed (id=800050), name updated to 'Мария Кузн.'
+2026-09-19 11:24:23,345 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,345 INFO [no key 0.00017s] {'name': 'Мария Кузнецова', 'email': 'maria@example.com', 'param_1': 'Мария Кузнецова'}
+2026-09-19 11:24:23,346 WARNING user with email maria@example.com already existed (id=800050), name updated to 'Мария Кузнецова'
+2026-09-19 11:24:23,347 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,347 INFO [no key 0.00016s] {'name': 'Настя', 'email': 'nastya@example.com', 'param_1': 'Настя'}
+2026-09-19 11:24:23,348 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,348 INFO [no key 0.00017s] {'name': 'Борис', 'email': 'boris@example.com', 'param_1': 'Борис'}
+2026-09-19 11:24:23,349 ERROR invalid email in row {'name': 'Света', 'email': 'invalidsvet.com'}: 'invalidsvet.com'
+2026-09-19 11:24:23,350 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,350 INFO [no key 0.00019s] {'name': 'Костя', 'email': 'kostya@example.com', 'param_1': 'Костя'}
+2026-09-19 11:24:23,351 ERROR invalid email in row {'name': 'Женя', 'email': ''}: ''
+2026-09-19 11:24:23,352 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,352 INFO [no key 0.00018s] {'name': 'Даня', 'email': 'danya@example.com', 'param_1': 'Даня'}
+2026-09-19 11:24:23,354 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,354 INFO [no key 0.00020s] {'name': 'Оксана', 'email': 'oksana@example.com', 'param_1': 'Оксана'}
+2026-09-19 11:24:23,355 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,355 INFO [no key 0.00019s] {'name': 'Тимур', 'email': 'timur@example.com', 'param_1': 'Тимур'}
+2026-09-19 11:24:23,357 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,357 INFO [no key 0.00016s] {'name': 'Юля', 'email': 'yulya@example.com', 'param_1': 'Юля'}
+2026-09-19 11:24:23,358 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,359 INFO [no key 0.00016s] {'name': 'Влад', 'email': 'vlad@example.com', 'param_1': 'Влад'}
+2026-09-19 11:24:23,359 ERROR invalid email in row {'name': 'Катя', 'email': '   '}: ''
+2026-09-19 11:24:23,360 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:23,360 INFO [no key 0.00016s] {'name': 'Родион', 'email': 'rodion@example.com', 'param_1': 'Родион'}
+2026-09-19 11:24:23,361 INFO COMMIT
+2026-09-19 11:24:23,363 INFO created: 10, updated: 7, skipped: 6
+2026-09-19 11:24:55,558 ERROR invalid email in row {'name': 'Оля', 'email': 'invalid-email.com'}: 'invalid-email.com'
+2026-09-19 11:24:55,576 INFO select pg_catalog.version()
+2026-09-19 11:24:55,577 INFO [raw sql] {}
+2026-09-19 11:24:55,578 INFO select current_schema()
+2026-09-19 11:24:55,578 INFO [raw sql] {}
+2026-09-19 11:24:55,579 INFO show standard_conforming_strings
+2026-09-19 11:24:55,579 INFO [raw sql] {}
+2026-09-19 11:24:55,580 INFO BEGIN (implicit)
+2026-09-19 11:24:55,591 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,591 INFO [no key 0.00020s] {'name': 'Пётр', 'email': 'petr@example.com', 'param_1': 'Пётр'}
+2026-09-19 11:24:55,593 WARNING user with email petr@example.com already existed (id=800042), name updated to 'Пётр'
+2026-09-19 11:24:55,594 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,594 INFO [no key 0.00017s] {'name': 'Пётр И.', 'email': 'petr@example.com', 'param_1': 'Пётр И.'}
+2026-09-19 11:24:55,595 WARNING user with email petr@example.com already existed (id=800042), name updated to 'Пётр И.'
+2026-09-19 11:24:55,596 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,596 INFO [no key 0.00016s] {'name': 'Пётр Иванов', 'email': 'petr@example.com', 'param_1': 'Пётр Иванов'}
+2026-09-19 11:24:55,597 WARNING user with email petr@example.com already existed (id=800042), name updated to 'Пётр Иванов'
+2026-09-19 11:24:55,597 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,598 INFO [no key 0.00019s] {'name': 'Иван Сидоров', 'email': 'ivan@example.com', 'param_1': 'Иван Сидоров'}
+2026-09-19 11:24:55,598 WARNING user with email ivan@example.com already existed (id=800045), name updated to 'Иван Сидоров'
+2026-09-19 11:24:55,598 ERROR invalid email in row {'name': 'Аня', 'email': ''}: ''
+2026-09-19 11:24:55,598 ERROR invalid email in row {'name': 'Слава', 'email': '   '}: ''
+2026-09-19 11:24:55,599 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,599 INFO [no key 0.00015s] {'name': 'Мария', 'email': 'maria@example.com', 'param_1': 'Мария'}
+2026-09-19 11:24:55,600 WARNING user with email maria@example.com already existed (id=800050), name updated to 'Мария'
+2026-09-19 11:24:55,601 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,601 INFO [no key 0.00015s] {'name': 'Мария К.', 'email': 'maria@example.com', 'param_1': 'Мария К.'}
+2026-09-19 11:24:55,601 WARNING user with email maria@example.com already existed (id=800050), name updated to 'Мария К.'
+2026-09-19 11:24:55,602 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,603 INFO [no key 0.00019s] {'name': 'Мария Кузн.', 'email': 'maria@example.com', 'param_1': 'Мария Кузн.'}
+2026-09-19 11:24:55,603 WARNING user with email maria@example.com already existed (id=800050), name updated to 'Мария Кузн.'
+2026-09-19 11:24:55,604 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,604 INFO [no key 0.00015s] {'name': 'Мария Кузнецова', 'email': 'maria@example.com', 'param_1': 'Мария Кузнецова'}
+2026-09-19 11:24:55,605 WARNING user with email maria@example.com already existed (id=800050), name updated to 'Мария Кузнецова'
+2026-09-19 11:24:55,606 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,606 INFO [no key 0.00015s] {'name': 'Настя', 'email': 'nastya@example.com', 'param_1': 'Настя'}
+2026-09-19 11:24:55,606 WARNING user with email nastya@example.com already existed (id=800054), name updated to 'Настя'
+2026-09-19 11:24:55,607 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,607 INFO [no key 0.00015s] {'name': 'Борис', 'email': 'boris@example.com', 'param_1': 'Борис'}
+2026-09-19 11:24:55,608 WARNING user with email boris@example.com already existed (id=800055), name updated to 'Борис'
+2026-09-19 11:24:55,608 ERROR invalid email in row {'name': 'Света', 'email': 'invalidsvet.com'}: 'invalidsvet.com'
+2026-09-19 11:24:55,609 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,609 INFO [no key 0.00015s] {'name': 'Костя', 'email': 'kostya@example.com', 'param_1': 'Костя'}
+2026-09-19 11:24:55,609 WARNING user with email kostya@example.com already existed (id=800056), name updated to 'Костя'
+2026-09-19 11:24:55,610 ERROR invalid email in row {'name': 'Женя', 'email': ''}: ''
+2026-09-19 11:24:55,610 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,610 INFO [no key 0.00017s] {'name': 'Даня', 'email': 'danya@example.com', 'param_1': 'Даня'}
+2026-09-19 11:24:55,611 WARNING user with email danya@example.com already existed (id=800057), name updated to 'Даня'
+2026-09-19 11:24:55,612 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,612 INFO [no key 0.00015s] {'name': 'Оксана', 'email': 'oksana@example.com', 'param_1': 'Оксана'}
+2026-09-19 11:24:55,613 WARNING user with email oksana@example.com already existed (id=800058), name updated to 'Оксана'
+2026-09-19 11:24:55,613 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,614 INFO [no key 0.00018s] {'name': 'Тимур', 'email': 'timur@example.com', 'param_1': 'Тимур'}
+2026-09-19 11:24:55,614 WARNING user with email timur@example.com already existed (id=800059), name updated to 'Тимур'
+2026-09-19 11:24:55,615 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,615 INFO [no key 0.00016s] {'name': 'Юля', 'email': 'yulya@example.com', 'param_1': 'Юля'}
+2026-09-19 11:24:55,616 WARNING user with email yulya@example.com already existed (id=800060), name updated to 'Юля'
+2026-09-19 11:24:55,617 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,617 INFO [no key 0.00015s] {'name': 'Влад', 'email': 'vlad@example.com', 'param_1': 'Влад'}
+2026-09-19 11:24:55,617 WARNING user with email vlad@example.com already existed (id=800061), name updated to 'Влад'
+2026-09-19 11:24:55,617 ERROR invalid email in row {'name': 'Катя', 'email': '   '}: ''
+2026-09-19 11:24:55,618 INFO INSERT INTO users (name, email) VALUES (%(name)s, %(email)s) ON CONFLICT (email) DO UPDATE SET name = %(param_1)s RETURNING users.id, (xmax = 0) AS inserted
+2026-09-19 11:24:55,618 INFO [no key 0.00015s] {'name': 'Родион', 'email': 'rodion@example.com', 'param_1': 'Родион'}
+2026-09-19 11:24:55,619 WARNING user with email rodion@example.com already existed (id=800062), name updated to 'Родион'
+2026-09-19 11:24:55,619 INFO COMMIT
+2026-09-19 11:24:55,621 INFO created: 0, updated: 17, skipped: 6
+2026-09-19 11:36:20,334 ERROR users.csv not found
+Traceback (most recent call last):
+  File "/home/iulian/work/project2/read_csv.py", line 24, in <module>
+    with open("./users.csv", newline="", encoding="utf-8") as f:
+FileNotFoundError: [Errno 2] No such file or directory: './users.csv'
+2026-09-19 11:36:20,335 INFO created: 0, updated: 0, skipped: 0
+2026-09-19 11:39:05,022 ERROR users.csv not found
+Traceback (most recent call last):
+  File "/home/iulian/work/project2/read_csv.py", line 24, in <module>
+    with open("./users.csv", newline="", encoding="utf-8") as f:
+FileNotFoundError: [Errno 2] No such file or directory: './users.csv'
+2026-09-19 11:39:05,022 INFO created: 0, updated: 0, skipped: 0
