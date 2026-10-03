@@ -10,6 +10,7 @@ from sqlalchemy import create_engine, ForeignKey, Text
 from conf import settings
 
 connection_string = f"postgresql://{settings.DB_USER}:{settings.DB_PASSWORD}@{settings.DB_HOST}:{settings.DB_PORT}/{settings.DB_NAME}"
+# DATABASE_URL = "sqlite:///./app.db"
 engine = create_engine(connection_string, echo=True)
 
 SessionLocal = sessionmaker(bind=engine)
@@ -26,8 +27,7 @@ class User(Base):
     name: Mapped[str]
     email: Mapped[str] = mapped_column(unique=True)
 
-    orders: Mapped[list["Order"]] = relationship(back_populates="user"
-                                                 )
+    orders: Mapped[list["Order"]] = relationship(back_populates="user")
     profile: Mapped["Profile"] = relationship(back_populates="user")
     roles: Mapped[list["Role"]] = relationship(
         secondary="user_roles", back_populates="users"
