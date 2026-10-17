@@ -32,11 +32,15 @@ with SessionLocal() as session_a, SessionLocal() as session_b:
     session_b.commit()
 
     cached_user_a = session_a.get(User, TARGET_ID)
-    print(f"[A] повторный get() без expire: name = {cached_user_a.name!r}  <- из identity map, SQL не отправлялся")
+    print(
+        f"[A] повторный get() без expire: name = {cached_user_a.name!r}  <- из identity map, SQL не отправлялся"
+    )
 
     session_a.expire(user_a)
     fresh_name = session_a.get(User, TARGET_ID).name
-    print(f"[A] после expire()+get(): name = {fresh_name!r}  <- новый SELECT внутри ТОЙ ЖЕ транзакции A")
+    print(
+        f"[A] после expire()+get(): name = {fresh_name!r}  <- новый SELECT внутри ТОЙ ЖЕ транзакции A"
+    )
 
     session_a.commit()
 
@@ -74,11 +78,14 @@ TARGET_NAME = f"user_{N // 2}"
 name_index = Index("ix_users_name", User.name)
 
 with SessionLocal() as session:
-    session.execute(text(
-        "INSERT INTO users (name, email) "
-        "SELECT 'user_' || i, 'user_' || i || '@test.com' FROM generate_series(1, :n) i "
-        "ON CONFLICT (email) DO NOTHING"
-    ), {"n": N})
+    session.execute(
+        text(
+            "INSERT INTO users (name, email) "
+            "SELECT 'user_' || i, 'user_' || i || '@test.com' FROM generate_series(1, :n) i "
+            "ON CONFLICT (email) DO NOTHING"
+        ),
+        {"n": N},
+    )
     session.commit()
 
     stmt = select(User).where(User.name == TARGET_NAME)

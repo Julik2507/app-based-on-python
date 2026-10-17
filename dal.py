@@ -68,7 +68,9 @@ class DataAccessLayer:
         self.session.commit()
 
     def register_user(self, email: str, name: str) -> None:
-        exists = self.session.scalars(select(User.id).where(User.email == email)).first()
+        exists = self.session.scalars(
+            select(User.id).where(User.email == email)
+        ).first()
         if exists is not None:
             logger.warning("user already exists: %s", email)
             raise AlreadyExistsError(f"user with email {email} already exists")

@@ -24,7 +24,6 @@ with SessionLocal() as session:
         with open("./users.csv", newline="", encoding="utf-8") as f:
             reader = csv.DictReader(f)
             for row in reader:
-
                 name = row["name"].strip()
                 email = row["email"].strip().lower()
 
@@ -49,7 +48,9 @@ with SessionLocal() as session:
                     updated += 1
                     log.warning(
                         "user with email %s already existed (id=%s), name updated to %r",
-                        email, user_id, name,
+                        email,
+                        user_id,
+                        name,
                     )
         session.commit()
     except FileNotFoundError:

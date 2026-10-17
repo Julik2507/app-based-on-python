@@ -26,8 +26,7 @@ class User(Base):
     name: Mapped[str]
     email: Mapped[str] = mapped_column(unique=True)
 
-    orders: Mapped[list["Order"]] = relationship(back_populates="user"
-                                                 )
+    orders: Mapped[list["Order"]] = relationship(back_populates="user")
     profile: Mapped["Profile"] = relationship(back_populates="user")
     roles: Mapped[list["Role"]] = relationship(
         secondary="user_roles", back_populates="users"
@@ -61,7 +60,9 @@ class Order(Base):
 class Profile(Base):
     __tablename__ = "profiles"
     id: Mapped[int] = mapped_column(primary_key=True)
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), unique=True)
+    user_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), unique=True
+    )
     bio: Mapped[str] = mapped_column(Text)
     user: Mapped["User"] = relationship(back_populates="profile")
 

@@ -45,7 +45,9 @@ def db_engine():
     # DuplicateTable, но и с UniqueViolation на pg_type — поэтому не ловим
     # ошибки, а сериализуем create_all блокировкой на время транзакции
     with engine.begin() as conn:
-        conn.execute(text("SELECT pg_advisory_xact_lock(:key)"), {"key": SCHEMA_LOCK_KEY})
+        conn.execute(
+            text("SELECT pg_advisory_xact_lock(:key)"), {"key": SCHEMA_LOCK_KEY}
+        )
         Base.metadata.create_all(conn)
     yield engine
     engine.dispose()

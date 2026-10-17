@@ -34,6 +34,7 @@ def role(session):
 
 # get_user_bio_by_email
 
+
 def test_get_user_bio(dal, session, user):
     session.add(Profile(user=user, bio="Hello"))
     session.flush()
@@ -58,6 +59,7 @@ def test_get_user_bio_no_profile(dal, user, caplog):
 
 
 # get_user_orders_amount_total
+
 
 def test_orders_total(dal, session, user):
     session.add_all([Order(user=user, amount=100), Order(user=user, amount=50)])
@@ -85,6 +87,7 @@ def test_orders_total_unknown_user_is_zero(dal):
 
 # get_user_roles
 
+
 def test_get_user_roles(dal, session, user):
     user.roles.extend([Role(name="editor"), Role(name="admin")])
     session.flush()
@@ -102,6 +105,7 @@ def test_get_user_roles_user_not_found(dal):
 
 
 # place_order
+
 
 def test_place_order(dal, session, user):
     dal.place_order(EMAIL, 200)
@@ -127,6 +131,7 @@ def test_place_order_non_positive_amount(dal, user, amount):
 
 # register_user
 
+
 def test_register_user(dal, session):
     dal.register_user(EMAIL, "Alice")
 
@@ -145,6 +150,7 @@ def test_register_user_duplicate_email(dal, session, user, caplog):
 
 # rename_user
 
+
 def test_rename_user(dal, session, user):
     dal.rename_user(EMAIL, "Alicia")
 
@@ -158,6 +164,7 @@ def test_rename_user_not_found(dal):
 
 
 # create_role
+
 
 def test_create_role(dal, session):
     dal.create_role("admin")
@@ -175,6 +182,7 @@ def test_create_role_duplicate(dal, session, role, caplog):
 
 
 # assign_role
+
 
 def test_assign_role(dal, user, role):
     dal.assign_role(EMAIL, "admin")
@@ -203,6 +211,7 @@ def test_assign_role_role_not_found(dal, user, caplog):
 
 
 # изоляция: данные предыдущих тестов откатились
+
 
 def test_isolation_db_is_empty(session):
     assert session.scalar(select(func.count()).select_from(User)) == 0
